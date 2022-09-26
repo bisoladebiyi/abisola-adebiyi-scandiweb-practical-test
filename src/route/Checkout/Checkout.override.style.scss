@@ -1,0 +1,80 @@
+.Checkout {
+    &::before {
+        @include after-mobile {
+            content: '';
+            display: none;
+        }
+    }
+}
+.progressBar{
+    display: flex;
+    background: var(--breadcrumbs-background);
+    min-height: 80px;
+    padding-bottom: 15px;
+    justify-content: space-between;
+    align-items: center;
+    .steps{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &_circle{
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            color: #9D9D9D;
+            background-color: #DBDBDB;
+            display: grid;
+            place-items: center;
+            position: relative;
+            font-weight: 700;
+            margin: 0 15px;
+            transition: all .4s ease-in-out; 
+            @include before-desktop {
+                margin: 0 5px;
+                transform: scale(.9);
+            }
+        }
+        &_title{
+            position: absolute;
+            top: 100%;
+            width: max-content;
+            font-weight: 600;
+            font-size: 12px;
+            @include before-desktop {
+                font-size: 11px;
+            }
+        }
+    }
+  
+    .progress {
+        width: 45%;
+        height: 7px;
+        border-radius: 4px;
+        background: #DBDBDB; 
+        transition: background .3s ease-in-out;
+        overflow: hidden;
+        &_color{
+            background: var(--primary-base-color);
+            height: 100%;
+            width: 0;
+            transition: width .3s ease-in-out;
+        }
+    }
+    .active{
+        width: 100%;
+    }
+
+    .active_step{ 
+        background: var(--primary-base-color);
+        .step_number {
+            color: #fff;
+        }
+        .steps_title{
+            color: #000;
+            font-weight: 700;
+        }
+    }
+    .inner{
+        width: 100%
+    };
+}
